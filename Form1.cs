@@ -20,9 +20,6 @@ namespace WinFormsApplication
             DebugLabel.Text = Program.Username.username;
         }
 
-
-        
-
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -58,6 +55,11 @@ namespace WinFormsApplication
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void UsernameEdit_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
