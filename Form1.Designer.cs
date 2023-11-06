@@ -42,6 +42,11 @@
             this.ServerName = new System.Windows.Forms.Label();
             this.ServerConnect = new System.Windows.Forms.Button();
             this.ServerDisconnect = new System.Windows.Forms.Button();
+            this.ServerIP_Input = new System.Windows.Forms.TextBox();
+            this.ServerIP = new System.Windows.Forms.Label();
+            this.ServerPort = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.UsernameEdit = new System.Windows.Forms.Button();
             this.menuTopbar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -120,6 +125,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.UsernameEdit);
             this.panel1.Controls.Add(this.DebugLabel);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -139,6 +145,10 @@
             // ServerPanel
             // 
             this.ServerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ServerPanel.Controls.Add(this.textBox1);
+            this.ServerPanel.Controls.Add(this.ServerPort);
+            this.ServerPanel.Controls.Add(this.ServerIP);
+            this.ServerPanel.Controls.Add(this.ServerIP_Input);
             this.ServerPanel.Controls.Add(this.ServerDisconnect);
             this.ServerPanel.Controls.Add(this.ServerName);
             this.ServerPanel.Controls.Add(this.ServerConnect);
@@ -174,6 +184,51 @@
             this.ServerDisconnect.TabIndex = 4;
             this.ServerDisconnect.Text = "Disconnect";
             this.ServerDisconnect.UseVisualStyleBackColor = true;
+            // 
+            // ServerIP_Input
+            // 
+            this.ServerIP_Input.Location = new System.Drawing.Point(50, 22);
+            this.ServerIP_Input.Name = "ServerIP_Input";
+            this.ServerIP_Input.Size = new System.Drawing.Size(172, 22);
+            this.ServerIP_Input.TabIndex = 5;
+            this.ServerIP_Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // ServerIP
+            // 
+            this.ServerIP.AutoSize = true;
+            this.ServerIP.Location = new System.Drawing.Point(3, 25);
+            this.ServerIP.Margin = new System.Windows.Forms.Padding(3);
+            this.ServerIP.Name = "ServerIP";
+            this.ServerIP.Size = new System.Drawing.Size(22, 16);
+            this.ServerIP.TabIndex = 6;
+            this.ServerIP.Text = "IP:";
+            // 
+            // ServerPort
+            // 
+            this.ServerPort.AutoSize = true;
+            this.ServerPort.Location = new System.Drawing.Point(3, 53);
+            this.ServerPort.Margin = new System.Windows.Forms.Padding(3);
+            this.ServerPort.Name = "ServerPort";
+            this.ServerPort.Size = new System.Drawing.Size(34, 16);
+            this.ServerPort.TabIndex = 7;
+            this.ServerPort.Text = "Port:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(50, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(172, 22);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // UsernameEdit
+            // 
+            this.UsernameEdit.Location = new System.Drawing.Point(3, 25);
+            this.UsernameEdit.Name = "UsernameEdit";
+            this.UsernameEdit.Size = new System.Drawing.Size(75, 23);
+            this.UsernameEdit.TabIndex = 2;
+            this.UsernameEdit.Text = "Edit";
+            this.UsernameEdit.UseVisualStyleBackColor = true;
             // 
             // ChatClient
             // 
@@ -213,6 +268,11 @@
         private System.Windows.Forms.Label ServerName;
         private System.Windows.Forms.Button ServerConnect;
         private System.Windows.Forms.Button ServerDisconnect;
+        private System.Windows.Forms.TextBox ServerIP_Input;
+        private System.Windows.Forms.Label ServerIP;
+        private System.Windows.Forms.Label ServerPort;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button UsernameEdit;
     }
 }
 
