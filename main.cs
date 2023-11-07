@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,9 @@ namespace WinFormsApplication
             InitializeComponent();
 
             Program.Username.generate_username();
-            DebugLabel.Text = Program.Username.username;
+            UsernameLabel.Text = Program.Username.username;
+
+            
         }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,7 +62,8 @@ namespace WinFormsApplication
 
         private void UsernameEdit_Click(object sender, EventArgs e)
         {
-            
+            user_edit_form user_Edit_Form = new user_edit_form();
+            user_Edit_Form.Show();
         }
 
         private void ServerIP_Input_KeyPress(object sender, KeyPressEventArgs e)
@@ -70,5 +74,12 @@ namespace WinFormsApplication
                 e.Handled = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

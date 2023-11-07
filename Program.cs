@@ -35,7 +35,7 @@ namespace WinFormsApplication
             }
             public static void change_username(string username)
             {
-                //User input here I think
+                
             }
 
            

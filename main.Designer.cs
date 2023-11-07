@@ -35,8 +35,9 @@
             this.menuTopbar = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DebugLabel = new System.Windows.Forms.Label();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ServerPanel = new System.Windows.Forms.Panel();
@@ -47,6 +48,7 @@
             this.ServerDisconnect = new System.Windows.Forms.Button();
             this.ServerName = new System.Windows.Forms.Label();
             this.ServerConnect = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuTopbar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -93,7 +95,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(1293, 30);
+            this.menuTopbar.Size = new System.Drawing.Size(1293, 28);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -112,25 +114,36 @@
             this.serverToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.serverToolStripMenuItem.Text = "Server";
             // 
-            // DebugLabel
+            // UsernameLabel
             // 
-            this.DebugLabel.AutoSize = true;
-            this.DebugLabel.Location = new System.Drawing.Point(3, 3);
-            this.DebugLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.DebugLabel.Name = "DebugLabel";
-            this.DebugLabel.Size = new System.Drawing.Size(84, 16);
-            this.DebugLabel.TabIndex = 1;
-            this.DebugLabel.Text = "USERNAME";
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Location = new System.Drawing.Point(3, 3);
+            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(84, 16);
+            this.UsernameLabel.TabIndex = 1;
+            this.UsernameLabel.Text = "USERNAME";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.UsernameEdit);
-            this.panel1.Controls.Add(this.DebugLabel);
+            this.panel1.Controls.Add(this.UsernameLabel);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 112);
             this.panel1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 72);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "USER IP";
             // 
             // UsernameEdit
             // 
@@ -237,11 +250,22 @@
             this.ServerConnect.Text = "Connect";
             this.ServerConnect.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1206, 616);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ChatClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 651);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuTopbar);
             this.MainMenuStrip = this.menuTopbar;
@@ -266,7 +290,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuTopbar;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
-        private System.Windows.Forms.Label DebugLabel;
+        private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.ToolStripMenuItem nothingHereYetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
@@ -280,6 +304,8 @@
         private System.Windows.Forms.Label ServerPort;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button UsernameEdit;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
