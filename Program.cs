@@ -31,15 +31,23 @@ namespace WinFormsApplication
             public static void generate_username()
             {
                 username = "user" + r.ToString();
-                
+
             }
-            public static void change_username(string username)
+        }
+
+        public class Message
+        {
+            public static void recieve_message(String name)
             {
-                
+
             }
 
-           
+            
         }
-        
+
+
+
+
+
     }
 }

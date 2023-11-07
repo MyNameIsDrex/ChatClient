@@ -35,7 +35,7 @@
             this.menuTopbar = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UsernameLabel = new System.Windows.Forms.Label();
+            UsernameLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
@@ -48,11 +48,16 @@
             this.ServerDisconnect = new System.Windows.Forms.Button();
             this.ServerName = new System.Windows.Forms.Label();
             this.ServerConnect = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.AttachFileButton = new System.Windows.Forms.Button();
+            this.SendButton = new System.Windows.Forms.Button();
+            this.MessageInput = new System.Windows.Forms.TextBox();
             this.menuTopbar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.ServerPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // userToolStripMenuItem
@@ -95,7 +100,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(1293, 28);
+            this.menuTopbar.Size = new System.Drawing.Size(890, 28);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -116,20 +121,20 @@
             // 
             // UsernameLabel
             // 
-            this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Location = new System.Drawing.Point(3, 3);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(84, 16);
-            this.UsernameLabel.TabIndex = 1;
-            this.UsernameLabel.Text = "USERNAME";
+            UsernameLabel.AutoSize = true;
+            UsernameLabel.Location = new System.Drawing.Point(3, 3);
+            UsernameLabel.Margin = new System.Windows.Forms.Padding(3);
+            UsernameLabel.Name = "UsernameLabel";
+            UsernameLabel.Size = new System.Drawing.Size(84, 16);
+            UsernameLabel.TabIndex = 1;
+            UsernameLabel.Text = "USERNAME";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.UsernameEdit);
-            this.panel1.Controls.Add(this.UsernameLabel);
+            this.panel1.Controls.Add(UsernameLabel);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 112);
@@ -250,22 +255,58 @@
             this.ServerConnect.Text = "Connect";
             this.ServerConnect.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // ExitButton
             // 
-            this.button1.Location = new System.Drawing.Point(1206, 616);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ExitButton.Location = new System.Drawing.Point(803, 508);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 5;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.AttachFileButton);
+            this.panel2.Controls.Add(this.SendButton);
+            this.panel2.Controls.Add(this.MessageInput);
+            this.panel2.Location = new System.Drawing.Point(343, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(535, 464);
+            this.panel2.TabIndex = 6;
+            // 
+            // AttachFileButton
+            // 
+            this.AttachFileButton.Location = new System.Drawing.Point(19, 425);
+            this.AttachFileButton.Name = "AttachFileButton";
+            this.AttachFileButton.Size = new System.Drawing.Size(28, 23);
+            this.AttachFileButton.TabIndex = 2;
+            this.AttachFileButton.Text = "+";
+            this.AttachFileButton.UseVisualStyleBackColor = true;
+            // 
+            // SendButton
+            // 
+            this.SendButton.Location = new System.Drawing.Point(444, 424);
+            this.SendButton.Name = "SendButton";
+            this.SendButton.Size = new System.Drawing.Size(75, 23);
+            this.SendButton.TabIndex = 1;
+            this.SendButton.Text = "Send";
+            this.SendButton.UseVisualStyleBackColor = true;
+            // 
+            // MessageInput
+            // 
+            this.MessageInput.Location = new System.Drawing.Point(53, 425);
+            this.MessageInput.Name = "MessageInput";
+            this.MessageInput.Size = new System.Drawing.Size(385, 22);
+            this.MessageInput.TabIndex = 0;
             // 
             // ChatClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 651);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(890, 543);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuTopbar);
             this.MainMenuStrip = this.menuTopbar;
@@ -279,6 +320,8 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ServerPanel.ResumeLayout(false);
             this.ServerPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,9 +346,13 @@
         private System.Windows.Forms.Label ServerPort;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button UsernameEdit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label UsernameLabel;
+        private static System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox MessageInput;
+        private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.Button AttachFileButton;
     }
 }
 
