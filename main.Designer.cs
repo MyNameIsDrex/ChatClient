@@ -36,7 +36,7 @@
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             UsernameLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ClientPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -49,15 +49,15 @@
             this.ServerName = new System.Windows.Forms.Label();
             this.ServerConnect = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.ChattingPanel = new System.Windows.Forms.Panel();
             this.AttachFileButton = new System.Windows.Forms.Button();
             this.SendButton = new System.Windows.Forms.Button();
             this.MessageInput = new System.Windows.Forms.TextBox();
             this.menuTopbar.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.ServerPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.ChattingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // userToolStripMenuItem
@@ -129,16 +129,16 @@
             UsernameLabel.TabIndex = 1;
             UsernameLabel.Text = "USERNAME";
             // 
-            // panel1
+            // ClientPanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.UsernameEdit);
-            this.panel1.Controls.Add(UsernameLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(265, 112);
-            this.panel1.TabIndex = 2;
+            this.ClientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ClientPanel.Controls.Add(this.label1);
+            this.ClientPanel.Controls.Add(this.UsernameEdit);
+            this.ClientPanel.Controls.Add(UsernameLabel);
+            this.ClientPanel.Location = new System.Drawing.Point(3, 3);
+            this.ClientPanel.Name = "ClientPanel";
+            this.ClientPanel.Size = new System.Drawing.Size(265, 112);
+            this.ClientPanel.TabIndex = 2;
             // 
             // label1
             // 
@@ -162,7 +162,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.ClientPanel);
             this.flowLayoutPanel1.Controls.Add(this.ServerPanel);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 38);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
@@ -265,15 +265,15 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel2
+            // ChattingPanel
             // 
-            this.panel2.Controls.Add(this.AttachFileButton);
-            this.panel2.Controls.Add(this.SendButton);
-            this.panel2.Controls.Add(this.MessageInput);
-            this.panel2.Location = new System.Drawing.Point(343, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(535, 464);
-            this.panel2.TabIndex = 6;
+            this.ChattingPanel.Controls.Add(this.AttachFileButton);
+            this.ChattingPanel.Controls.Add(this.SendButton);
+            this.ChattingPanel.Controls.Add(this.MessageInput);
+            this.ChattingPanel.Location = new System.Drawing.Point(343, 38);
+            this.ChattingPanel.Name = "ChattingPanel";
+            this.ChattingPanel.Size = new System.Drawing.Size(535, 464);
+            this.ChattingPanel.TabIndex = 6;
             // 
             // AttachFileButton
             // 
@@ -305,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 543);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ChattingPanel);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuTopbar);
@@ -315,13 +315,13 @@
             this.Load += new System.EventHandler(this.ChatClient_Load);
             this.menuTopbar.ResumeLayout(false);
             this.menuTopbar.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.ClientPanel.ResumeLayout(false);
+            this.ClientPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ServerPanel.ResumeLayout(false);
             this.ServerPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.ChattingPanel.ResumeLayout(false);
+            this.ChattingPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +335,7 @@
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nothingHereYetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ClientPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel ServerPanel;
         private System.Windows.Forms.Label ServerName;
@@ -348,11 +348,11 @@
         private System.Windows.Forms.Button UsernameEdit;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label1;
-        private static System.Windows.Forms.Label UsernameLabel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel ChattingPanel;
         private System.Windows.Forms.TextBox MessageInput;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Button AttachFileButton;
+        private static System.Windows.Forms.Label UsernameLabel;
     }
 }
 
