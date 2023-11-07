@@ -93,7 +93,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(1293, 28);
+            this.menuTopbar.Size = new System.Drawing.Size(1293, 30);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -169,7 +169,9 @@
             // 
             // textBox1
             // 
+            this.textBox1.AllowDrop = true;
             this.textBox1.Location = new System.Drawing.Point(50, 50);
+            this.textBox1.MaxLength = 5;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 22);
             this.textBox1.TabIndex = 8;
@@ -198,11 +200,14 @@
             // 
             // ServerIP_Input
             // 
+            this.ServerIP_Input.AllowDrop = true;
             this.ServerIP_Input.Location = new System.Drawing.Point(50, 22);
+            this.ServerIP_Input.MaxLength = 15;
             this.ServerIP_Input.Name = "ServerIP_Input";
             this.ServerIP_Input.Size = new System.Drawing.Size(172, 22);
             this.ServerIP_Input.TabIndex = 5;
             this.ServerIP_Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.ServerIP_Input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ServerIP_Input_KeyPress);
             // 
             // ServerDisconnect
             // 

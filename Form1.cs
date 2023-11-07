@@ -61,5 +61,14 @@ namespace WinFormsApplication
         {
             
         }
+
+        private void ServerIP_Input_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

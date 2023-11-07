@@ -26,13 +26,11 @@ namespace WinFormsApplication
 
             public static Random rnd = new Random();
             public static int r = rnd.Next();   
-            public static string r_hex = "ABCD";
             public static string username;
             
             public static void generate_username()
             {
-                r_hex = r.ToString();
-                username = "user" + r_hex;
+                username = "user" + r.ToString();
                 
             }
             public static void change_username(string username)
