@@ -35,7 +35,7 @@
             this.menuTopbar = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            UsernameLabel = new System.Windows.Forms.Label();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.ClientPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
@@ -121,20 +121,20 @@
             // 
             // UsernameLabel
             // 
-            UsernameLabel.AutoSize = true;
-            UsernameLabel.Location = new System.Drawing.Point(3, 3);
-            UsernameLabel.Margin = new System.Windows.Forms.Padding(3);
-            UsernameLabel.Name = "UsernameLabel";
-            UsernameLabel.Size = new System.Drawing.Size(84, 16);
-            UsernameLabel.TabIndex = 1;
-            UsernameLabel.Text = "USERNAME";
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Location = new System.Drawing.Point(3, 3);
+            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(84, 16);
+            this.UsernameLabel.TabIndex = 1;
+            this.UsernameLabel.Text = "USERNAME";
             // 
             // ClientPanel
             // 
             this.ClientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ClientPanel.Controls.Add(this.label1);
             this.ClientPanel.Controls.Add(this.UsernameEdit);
-            this.ClientPanel.Controls.Add(UsernameLabel);
+            this.ClientPanel.Controls.Add(this.UsernameLabel);
             this.ClientPanel.Location = new System.Drawing.Point(3, 3);
             this.ClientPanel.Name = "ClientPanel";
             this.ClientPanel.Size = new System.Drawing.Size(265, 112);
@@ -267,6 +267,7 @@
             // 
             // ChattingPanel
             // 
+            this.ChattingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ChattingPanel.Controls.Add(this.AttachFileButton);
             this.ChattingPanel.Controls.Add(this.SendButton);
             this.ChattingPanel.Controls.Add(this.MessageInput);
@@ -352,7 +353,7 @@
         private System.Windows.Forms.TextBox MessageInput;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Button AttachFileButton;
-        private static System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Label UsernameLabel;
     }
 }
 

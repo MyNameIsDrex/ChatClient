@@ -15,6 +15,7 @@ namespace WinFormsApplication
 {
     public partial class ChatClient : Form
     {
+
         
         public ChatClient()
         {
@@ -24,18 +25,22 @@ namespace WinFormsApplication
             UsernameLabel.Text = Program.Username.username;
 
             set_username.update_username_label();
+
+            
         }
 
         public static class set_username
-        {
-            
+        {   
             public static void update_username_label()
             {
-                
                 UsernameLabel.Text = Program.Username.username;
             }
+
+
+
         }
         
+         
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
