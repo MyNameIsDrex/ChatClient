@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace WinFormsApplication
 {
     public partial class ChatClient : Form
     {
+        
         public ChatClient()
         {
             InitializeComponent();
@@ -20,8 +22,19 @@ namespace WinFormsApplication
             Program.Username.generate_username();
             UsernameLabel.Text = Program.Username.username;
 
-            
+            set_username.update_username_label();
         }
+
+        public static class set_username
+        {
+            
+            public static void update_username_label()
+            {
+                
+                UsernameLabel.Text = Program.Username.username;
+            }
+        }
+        
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {

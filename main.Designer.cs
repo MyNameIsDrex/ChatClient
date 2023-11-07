@@ -290,7 +290,6 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuTopbar;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
-        private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.ToolStripMenuItem nothingHereYetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
@@ -306,6 +305,7 @@
         private System.Windows.Forms.Button UsernameEdit;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label UsernameLabel;
     }
 }
 

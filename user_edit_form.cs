@@ -19,15 +19,15 @@ namespace WinFormsApplication
 
         private void Confirm_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             Program.Username.username = username_textbox.Text;
-            
+            ChatClient.set_username.update_username_label();            
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
+            Hide();
         }
 
         public void setUser(string name)
