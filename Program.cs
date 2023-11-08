@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApplication.Properties;
 
 namespace WinFormsApplication
 {
@@ -18,6 +20,7 @@ namespace WinFormsApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ChatClient());
+            
         }
 
         public class Username
@@ -30,22 +33,22 @@ namespace WinFormsApplication
             
             public static void generate_username()
             {
-                username = "user" + r.ToString();
-
-            }
-        }
-
-        public class Message
-        {
-            public static void recieve_message(String name)
-            {
-
+                if (SettingsProperty.ReferenceEquals(username, username))
+                {
+                    username = "user" + r.ToString();
+                    Settings.Default.Username = username;
+                }
+                
+                if (SettingsProperty.ReferenceEquals(username, "user"))
+                {
+                    username = Settings.Default.Username;
+                }
+                
+                
             }
 
             
         }
-
-
 
 
 

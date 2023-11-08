@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WinFormsApplication.Program;
+using System.Windows.Input;
+using WinFormsApplication.Properties;
+
 
 namespace WinFormsApplication
 {
@@ -20,8 +24,9 @@ namespace WinFormsApplication
         private void Confirm_Click(object sender, EventArgs e)
         {
             Hide();
-            Program.Username.username = username_textbox.Text;
-            ChatClient.set_username.update_username_label();            
+
+            Settings.Default.Username = username_textbox.Text;
+            
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -34,6 +39,16 @@ namespace WinFormsApplication
         {
             InitializeComponent();
             username_textbox.Text = name;
+        }      
+
+        private void username_textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                Hide();
+
+                Settings.Default.Username = username_textbox.Text;
+            }
         }
     }
 }

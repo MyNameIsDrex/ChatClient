@@ -50,6 +50,7 @@
             this.username_textbox.Name = "username_textbox";
             this.username_textbox.Size = new System.Drawing.Size(194, 22);
             this.username_textbox.TabIndex = 1;
+            this.username_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.username_textbox_KeyDown);
             // 
             // Confirm
             // 

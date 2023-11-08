@@ -53,6 +53,8 @@
             this.AttachFileButton = new System.Windows.Forms.Button();
             this.SendButton = new System.Windows.Forms.Button();
             this.MessageInput = new System.Windows.Forms.TextBox();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
             this.menuTopbar.SuspendLayout();
             this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -100,7 +102,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(890, 28);
+            this.menuTopbar.Size = new System.Drawing.Size(913, 28);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -132,6 +134,7 @@
             // ClientPanel
             // 
             this.ClientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ClientPanel.Controls.Add(this.UpdateButton);
             this.ClientPanel.Controls.Add(this.label1);
             this.ClientPanel.Controls.Add(this.UsernameEdit);
             this.ClientPanel.Controls.Add(this.UsernameLabel);
@@ -143,7 +146,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 72);
+            this.label1.Location = new System.Drawing.Point(3, 71);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
@@ -263,11 +266,12 @@
             this.ExitButton.TabIndex = 5;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.button1_Click);
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // ChattingPanel
             // 
             this.ChattingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ChattingPanel.Controls.Add(this.MessageOutputBox);
             this.ChattingPanel.Controls.Add(this.AttachFileButton);
             this.ChattingPanel.Controls.Add(this.SendButton);
             this.ChattingPanel.Controls.Add(this.MessageInput);
@@ -301,11 +305,29 @@
             this.MessageInput.Size = new System.Drawing.Size(385, 22);
             this.MessageInput.TabIndex = 0;
             // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Location = new System.Drawing.Point(84, 25);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.UpdateButton.TabIndex = 4;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // MessageOutputBox
+            // 
+            this.MessageOutputBox.Location = new System.Drawing.Point(19, 16);
+            this.MessageOutputBox.Name = "MessageOutputBox";
+            this.MessageOutputBox.Size = new System.Drawing.Size(500, 384);
+            this.MessageOutputBox.TabIndex = 3;
+            this.MessageOutputBox.Text = "";
+            // 
             // ChatClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 543);
+            this.ClientSize = new System.Drawing.Size(913, 543);
             this.Controls.Add(this.ChattingPanel);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -354,6 +376,8 @@
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Button AttachFileButton;
         private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.RichTextBox MessageOutputBox;
     }
 }
 
