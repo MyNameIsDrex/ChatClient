@@ -101,5 +101,10 @@ namespace WinFormsApplication
         {
             Close();
         }
+
+        private void AttachFileButton_Click(object sender, EventArgs e)
+        {
+            FileDialog1.ShowDialog();
+        }
     }
 }

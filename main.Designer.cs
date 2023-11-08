@@ -55,6 +55,8 @@
             this.MessageInput = new System.Windows.Forms.TextBox();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuTopbar.SuspendLayout();
             this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -102,7 +104,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(913, 28);
+            this.menuTopbar.Size = new System.Drawing.Size(913, 30);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -288,6 +290,7 @@
             this.AttachFileButton.TabIndex = 2;
             this.AttachFileButton.Text = "+";
             this.AttachFileButton.UseVisualStyleBackColor = true;
+            this.AttachFileButton.Click += new System.EventHandler(this.AttachFileButton_Click);
             // 
             // SendButton
             // 
@@ -323,11 +326,26 @@
             this.MessageOutputBox.TabIndex = 3;
             this.MessageOutputBox.Text = "";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(-28, -57);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // FileDialog1
+            // 
+            this.FileDialog1.Filter = "Images|*.png|*.jpg|*.jpeg";
+            this.FileDialog1.InitialDirectory = "C:\\";
+            // 
             // ChatClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 543);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ChattingPanel);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -378,6 +396,8 @@
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.RichTextBox MessageOutputBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.OpenFileDialog FileDialog1;
     }
 }
 
