@@ -37,11 +37,12 @@
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ClientPanel = new System.Windows.Forms.Panel();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ServerPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ServerPort_Input = new System.Windows.Forms.TextBox();
             this.ServerPort = new System.Windows.Forms.Label();
             this.ServerIP = new System.Windows.Forms.Label();
             this.ServerIP_Input = new System.Windows.Forms.TextBox();
@@ -52,10 +53,9 @@
             this.ChattingPanel = new System.Windows.Forms.Panel();
             this.AttachFileButton = new System.Windows.Forms.Button();
             this.SendButton = new System.Windows.Forms.Button();
-            this.MessageInput = new System.Windows.Forms.TextBox();
-            this.UpdateButton = new System.Windows.Forms.Button();
-            this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
+            this.Message_InputBox = new System.Windows.Forms.TextBox();
             this.FileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
             this.menuTopbar.SuspendLayout();
             this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usernameToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 26);
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -84,7 +84,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nothingHereYetToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -103,7 +103,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(913, 28);
+            this.menuTopbar.Size = new System.Drawing.Size(913, 30);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -112,7 +112,7 @@
             this.connectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
@@ -144,6 +144,16 @@
             this.ClientPanel.Size = new System.Drawing.Size(265, 112);
             this.ClientPanel.TabIndex = 2;
             // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Location = new System.Drawing.Point(84, 25);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.UpdateButton.TabIndex = 4;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -171,13 +181,13 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 38);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(276, 239);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(273, 239);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // ServerPanel
             // 
             this.ServerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ServerPanel.Controls.Add(this.textBox1);
+            this.ServerPanel.Controls.Add(this.ServerPort_Input);
             this.ServerPanel.Controls.Add(this.ServerPort);
             this.ServerPanel.Controls.Add(this.ServerIP);
             this.ServerPanel.Controls.Add(this.ServerIP_Input);
@@ -189,16 +199,16 @@
             this.ServerPanel.Size = new System.Drawing.Size(265, 112);
             this.ServerPanel.TabIndex = 4;
             // 
-            // textBox1
+            // ServerPort_Input
             // 
-            this.textBox1.AllowDrop = true;
-            this.textBox1.Location = new System.Drawing.Point(50, 50);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 22);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "12345";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.ServerPort_Input.AllowDrop = true;
+            this.ServerPort_Input.Location = new System.Drawing.Point(50, 50);
+            this.ServerPort_Input.MaxLength = 5;
+            this.ServerPort_Input.Name = "ServerPort_Input";
+            this.ServerPort_Input.Size = new System.Drawing.Size(172, 22);
+            this.ServerPort_Input.TabIndex = 8;
+            this.ServerPort_Input.Text = "12345";
+            this.ServerPort_Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // ServerPort
             // 
@@ -258,6 +268,7 @@
             this.ServerConnect.TabIndex = 3;
             this.ServerConnect.Text = "Connect";
             this.ServerConnect.UseVisualStyleBackColor = true;
+            this.ServerConnect.Click += new System.EventHandler(this.ServerConnect_Click);
             // 
             // ExitButton
             // 
@@ -275,7 +286,7 @@
             this.ChattingPanel.Controls.Add(this.MessageOutputBox);
             this.ChattingPanel.Controls.Add(this.AttachFileButton);
             this.ChattingPanel.Controls.Add(this.SendButton);
-            this.ChattingPanel.Controls.Add(this.MessageInput);
+            this.ChattingPanel.Controls.Add(this.Message_InputBox);
             this.ChattingPanel.Location = new System.Drawing.Point(343, 38);
             this.ChattingPanel.Name = "ChattingPanel";
             this.ChattingPanel.Size = new System.Drawing.Size(535, 464);
@@ -300,22 +311,18 @@
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = true;
             // 
-            // MessageInput
+            // Message_InputBox
             // 
-            this.MessageInput.Location = new System.Drawing.Point(53, 425);
-            this.MessageInput.Name = "MessageInput";
-            this.MessageInput.Size = new System.Drawing.Size(385, 22);
-            this.MessageInput.TabIndex = 0;
+            this.Message_InputBox.Location = new System.Drawing.Point(53, 425);
+            this.Message_InputBox.Name = "Message_InputBox";
+            this.Message_InputBox.Size = new System.Drawing.Size(385, 22);
+            this.Message_InputBox.TabIndex = 0;
+            this.Message_InputBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MessageInput_KeyDown);
             // 
-            // UpdateButton
+            // FileDialog1
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(84, 25);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
-            this.UpdateButton.TabIndex = 4;
-            this.UpdateButton.Text = "Update";
-            this.UpdateButton.UseVisualStyleBackColor = true;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.FileDialog1.Filter = "Images|*.png|*.jpg|*.jpeg";
+            this.FileDialog1.InitialDirectory = "C:\\";
             // 
             // MessageOutputBox
             // 
@@ -324,11 +331,6 @@
             this.MessageOutputBox.Size = new System.Drawing.Size(500, 384);
             this.MessageOutputBox.TabIndex = 3;
             this.MessageOutputBox.Text = "";
-            // 
-            // FileDialog1
-            // 
-            this.FileDialog1.Filter = "Images|*.png|*.jpg|*.jpeg";
-            this.FileDialog1.InitialDirectory = "C:\\";
             // 
             // ChatClient
             // 
@@ -374,18 +376,18 @@
         private System.Windows.Forms.TextBox ServerIP_Input;
         private System.Windows.Forms.Label ServerIP;
         private System.Windows.Forms.Label ServerPort;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ServerPort_Input;
         private System.Windows.Forms.Button UsernameEdit;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel ChattingPanel;
-        private System.Windows.Forms.TextBox MessageInput;
+        private System.Windows.Forms.TextBox Message_InputBox;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Button AttachFileButton;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.RichTextBox MessageOutputBox;
         private System.Windows.Forms.OpenFileDialog FileDialog1;
+        private System.Windows.Forms.RichTextBox MessageOutputBox;
     }
 }
 
