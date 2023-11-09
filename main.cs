@@ -25,11 +25,16 @@ namespace WinFormsApplication
 
     public partial class ChatClient : Form
     {
+        //Network variables
         private TcpClient client;
         private NetworkStream stream;
         private Thread receiveThread;
 
+        //Message variable
+        
         public string msg;
+
+
         public ChatClient()
         {
             InitializeComponent();
@@ -65,21 +70,6 @@ namespace WinFormsApplication
         {
             user_edit_form user_Edit_Form = new user_edit_form();
             user_Edit_Form.Show();
-        }
-
-        private void ChatClient_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
         }
 
         private void UsernameEdit_Click(object sender, EventArgs e)
@@ -120,105 +110,88 @@ namespace WinFormsApplication
             {
                 client.Connect(ServerIP_Input.Text, Convert.ToInt32(ServerPort_Input.Text));
 
-                NetworkStream stream = client.GetStream();
-                
+                //NetworkStream stream = client.GetStream();
+                stream = client.GetStream();
+
+                receiveThread = new Thread(ReceiveMessages);
+                receiveThread.Start();
+
+                ServerConnect.Enabled = false;
+
+                ErrorText.Visible = false;
             }
             catch
             {
-
+                ErrorText.Text = "Connection Error!";
+                ErrorText.Visible = true;
             }
         }
 
-        
+        private void ReceiveMessages()
+        {
+            while (true)
+            {
+                byte[] buffer = new byte[1024];
+                int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                if (bytesRead == 0)
+                break;
+
+                string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                AddMessageToTextBox(message);
+            }
+
+            MessageOutputBox.AppendText("Server Disconnected...");
+            Disconnect();
+        }
+
+        private void AddMessageToTextBox(string message)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => AddMessageToTextBox(message)));
+            }
+            else
+            {
+                Message_InputBox.AppendText(Settings.Default.Username + ": " + message + Environment.NewLine);
+            }
+        }
 
         private void MessageInput_KeyDown(object sender, KeyEventArgs e)
         {
-            msg = Message_InputBox.Text;
-            Message_InputBox.Clear();
+            if (e.KeyCode == Keys.Enter)
+            {
+                string message = Message_InputBox.Text;
+                byte[] data = Encoding.ASCII.GetBytes(message);
+                stream.Write(data, 0, data.Length);
+
+                Message_InputBox.Clear();
+            }
         }
 
-        // ExecuteClient() Method
-        static void ExecuteClient()
+        private void Disconnect()
         {
-
-            try
+            if (client != null)
             {
-
-                // Establish the remote endpoint 
-                // for the socket. This example 
-                // uses port 11111 on the local 
-                // computer.
-                IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-                IPAddress ipAddr = ipHost.AddressList[0];
-                IPEndPoint localEndPoint = new IPEndPoint(ipAddr, 11111);
-
-                // Creation TCP/IP Socket using 
-                // Socket Class Constructor
-                Socket sender = new Socket(ipAddr.AddressFamily,
-                           SocketType.Stream, ProtocolType.Tcp);
-                
-                try
-                {
-
-                    // Connect Socket to the remote 
-                    // endpoint using method Connect()
-                    sender.Connect(localEndPoint);
-
-                    // We print EndPoint information 
-                    // that we are connected
-                    Console.WriteLine("Socket connected to -> {0} ",
-                                  sender.RemoteEndPoint.ToString());
-
-                    // Creation of message that
-                    // we will send to Server
-                    byte[] messageSent = Encoding.ASCII.GetBytes("HOW DO I PUT A VARIABLE HERE?!");
-                    int byteSent = sender.Send(messageSent);
-
-                    // Data buffer
-                    byte[] messageReceived = new byte[1024];
-
-                    // We receive the message using 
-                    // the method Receive(). This 
-                    // method returns number of bytes
-                    // received, that we'll use to 
-                    // convert them to string
-                    int byteRecv = sender.Receive(messageReceived);
-                    Console.WriteLine("Message from Server -> {0}",
-                          Encoding.ASCII.GetString(messageReceived,
-                                                     0, byteRecv));
-
-                    // Close Socket using 
-                    // the method Close()
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
-                }
-
-                // Manage of Socket's Exceptions
-                catch (ArgumentNullException ane)
-                {
-
-                    Console.WriteLine("ArgumentNullException : {0}", ane.ToString());
-                }
-
-                catch (SocketException se)
-                {
-
-                    Console.WriteLine("SocketException : {0}", se.ToString());
-                }
-
-                catch (Exception e)
-                {
-                    Console.WriteLine("Unexpected exception : {0}", e.ToString());
-                }
+                //receiveThread.Abort(this);
+                //stream.Close();
+                //client.Close();
             }
 
-            catch (Exception e)
-            {
+            ServerConnect.Enabled = true;
+        }
 
-                Console.WriteLine(e.ToString());
-            }
+        private void ServerDisconnect_Click(object sender, EventArgs e)
+        {
+            Disconnect();
+        }
+
+        private void SendButton_Click(object sender, EventArgs e)
+        {
+            string message = Message_InputBox.Text;
+            byte[] data = Encoding.ASCII.GetBytes(message);
+            stream.Write(data, 0, data.Length);
+
+            Message_InputBox.Clear();
         }
     }
 }
-    
-

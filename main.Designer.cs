@@ -51,11 +51,12 @@
             this.ServerConnect = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.ChattingPanel = new System.Windows.Forms.Panel();
+            this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
             this.AttachFileButton = new System.Windows.Forms.Button();
             this.SendButton = new System.Windows.Forms.Button();
             this.Message_InputBox = new System.Windows.Forms.TextBox();
             this.FileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.MessageOutputBox = new System.Windows.Forms.RichTextBox();
+            this.ErrorText = new System.Windows.Forms.Label();
             this.menuTopbar.SuspendLayout();
             this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -68,7 +69,7 @@
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usernameToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 26);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -84,7 +85,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nothingHereYetToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -103,7 +104,7 @@
             this.connectToolStripMenuItem});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
-            this.menuTopbar.Size = new System.Drawing.Size(913, 30);
+            this.menuTopbar.Size = new System.Drawing.Size(913, 28);
             this.menuTopbar.TabIndex = 0;
             this.menuTopbar.Text = "menuStrip1";
             // 
@@ -112,7 +113,7 @@
             this.connectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
@@ -208,7 +209,6 @@
             this.ServerPort_Input.Size = new System.Drawing.Size(172, 22);
             this.ServerPort_Input.TabIndex = 8;
             this.ServerPort_Input.Text = "12345";
-            this.ServerPort_Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // ServerPort
             // 
@@ -238,7 +238,6 @@
             this.ServerIP_Input.Name = "ServerIP_Input";
             this.ServerIP_Input.Size = new System.Drawing.Size(172, 22);
             this.ServerIP_Input.TabIndex = 5;
-            this.ServerIP_Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.ServerIP_Input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ServerIP_Input_KeyPress);
             // 
             // ServerDisconnect
@@ -249,6 +248,7 @@
             this.ServerDisconnect.TabIndex = 4;
             this.ServerDisconnect.Text = "Disconnect";
             this.ServerDisconnect.UseVisualStyleBackColor = true;
+            this.ServerDisconnect.Click += new System.EventHandler(this.ServerDisconnect_Click);
             // 
             // ServerName
             // 
@@ -292,6 +292,14 @@
             this.ChattingPanel.Size = new System.Drawing.Size(535, 464);
             this.ChattingPanel.TabIndex = 6;
             // 
+            // MessageOutputBox
+            // 
+            this.MessageOutputBox.Location = new System.Drawing.Point(19, 16);
+            this.MessageOutputBox.Name = "MessageOutputBox";
+            this.MessageOutputBox.Size = new System.Drawing.Size(500, 384);
+            this.MessageOutputBox.TabIndex = 3;
+            this.MessageOutputBox.Text = "";
+            // 
             // AttachFileButton
             // 
             this.AttachFileButton.Location = new System.Drawing.Point(19, 425);
@@ -310,6 +318,7 @@
             this.SendButton.TabIndex = 1;
             this.SendButton.Text = "Send";
             this.SendButton.UseVisualStyleBackColor = true;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
             // Message_InputBox
             // 
@@ -324,19 +333,22 @@
             this.FileDialog1.Filter = "Images|*.png|*.jpg|*.jpeg";
             this.FileDialog1.InitialDirectory = "C:\\";
             // 
-            // MessageOutputBox
+            // ErrorText
             // 
-            this.MessageOutputBox.Location = new System.Drawing.Point(19, 16);
-            this.MessageOutputBox.Name = "MessageOutputBox";
-            this.MessageOutputBox.Size = new System.Drawing.Size(500, 384);
-            this.MessageOutputBox.TabIndex = 3;
-            this.MessageOutputBox.Text = "";
+            this.ErrorText.AutoSize = true;
+            this.ErrorText.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorText.ForeColor = System.Drawing.Color.Red;
+            this.ErrorText.Location = new System.Drawing.Point(27, 290);
+            this.ErrorText.Name = "ErrorText";
+            this.ErrorText.Size = new System.Drawing.Size(0, 16);
+            this.ErrorText.TabIndex = 7;
             // 
             // ChatClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 543);
+            this.Controls.Add(this.ErrorText);
             this.Controls.Add(this.ChattingPanel);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -344,7 +356,6 @@
             this.MainMenuStrip = this.menuTopbar;
             this.Name = "ChatClient";
             this.Text = "Chat Client";
-            this.Load += new System.EventHandler(this.ChatClient_Load);
             this.menuTopbar.ResumeLayout(false);
             this.menuTopbar.PerformLayout();
             this.ClientPanel.ResumeLayout(false);
@@ -388,6 +399,7 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.OpenFileDialog FileDialog1;
         private System.Windows.Forms.RichTextBox MessageOutputBox;
+        public System.Windows.Forms.Label ErrorText;
     }
 }
 
