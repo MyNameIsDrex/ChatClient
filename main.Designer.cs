@@ -38,7 +38,7 @@
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ClientPanel = new System.Windows.Forms.Panel();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.userip_label = new System.Windows.Forms.Label();
             this.UsernameEdit = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ServerPanel = new System.Windows.Forms.Panel();
@@ -57,6 +57,7 @@
             this.Message_InputBox = new System.Windows.Forms.TextBox();
             this.FileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ErrorText = new System.Windows.Forms.Label();
+            this.serverToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTopbar.SuspendLayout();
             this.ClientPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -69,7 +70,7 @@
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usernameToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 26);
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -85,7 +86,7 @@
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nothingHereYetToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
@@ -101,7 +102,8 @@
             this.menuTopbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.connectToolStripMenuItem});
+            this.connectToolStripMenuItem,
+            this.serverToolStripMenuItem1});
             this.menuTopbar.Location = new System.Drawing.Point(0, 0);
             this.menuTopbar.Name = "menuTopbar";
             this.menuTopbar.Size = new System.Drawing.Size(913, 28);
@@ -113,7 +115,7 @@
             this.connectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.serverToolStripMenuItem});
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
@@ -137,7 +139,7 @@
             // 
             this.ClientPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ClientPanel.Controls.Add(this.UpdateButton);
-            this.ClientPanel.Controls.Add(this.label1);
+            this.ClientPanel.Controls.Add(this.userip_label);
             this.ClientPanel.Controls.Add(this.UsernameEdit);
             this.ClientPanel.Controls.Add(this.UsernameLabel);
             this.ClientPanel.Location = new System.Drawing.Point(3, 3);
@@ -155,15 +157,15 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // label1
+            // userip_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 71);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "USER IP";
+            this.userip_label.AutoSize = true;
+            this.userip_label.Location = new System.Drawing.Point(3, 71);
+            this.userip_label.Margin = new System.Windows.Forms.Padding(3);
+            this.userip_label.Name = "userip_label";
+            this.userip_label.Size = new System.Drawing.Size(60, 16);
+            this.userip_label.TabIndex = 3;
+            this.userip_label.Text = "USER IP";
             // 
             // UsernameEdit
             // 
@@ -272,6 +274,8 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.ExitButton.Location = new System.Drawing.Point(803, 508);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(75, 23);
@@ -282,6 +286,11 @@
             // 
             // ChattingPanel
             // 
+            this.ChattingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChattingPanel.AutoSize = true;
+            this.ChattingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ChattingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ChattingPanel.Controls.Add(this.MessageOutputBox);
             this.ChattingPanel.Controls.Add(this.AttachFileButton);
@@ -294,14 +303,18 @@
             // 
             // MessageOutputBox
             // 
+            this.MessageOutputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MessageOutputBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.MessageOutputBox.Location = new System.Drawing.Point(19, 16);
             this.MessageOutputBox.Name = "MessageOutputBox";
+            this.MessageOutputBox.ReadOnly = true;
             this.MessageOutputBox.Size = new System.Drawing.Size(500, 384);
             this.MessageOutputBox.TabIndex = 3;
             this.MessageOutputBox.Text = "";
             // 
             // AttachFileButton
             // 
+            this.AttachFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AttachFileButton.Location = new System.Drawing.Point(19, 425);
             this.AttachFileButton.Name = "AttachFileButton";
             this.AttachFileButton.Size = new System.Drawing.Size(28, 23);
@@ -312,6 +325,7 @@
             // 
             // SendButton
             // 
+            this.SendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SendButton.Location = new System.Drawing.Point(444, 424);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(75, 23);
@@ -322,6 +336,8 @@
             // 
             // Message_InputBox
             // 
+            this.Message_InputBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Message_InputBox.Location = new System.Drawing.Point(53, 425);
             this.Message_InputBox.Name = "Message_InputBox";
             this.Message_InputBox.Size = new System.Drawing.Size(385, 22);
@@ -343,18 +359,30 @@
             this.ErrorText.Size = new System.Drawing.Size(0, 16);
             this.ErrorText.TabIndex = 7;
             // 
+            // serverToolStripMenuItem1
+            // 
+            this.serverToolStripMenuItem1.Name = "serverToolStripMenuItem1";
+            this.serverToolStripMenuItem1.Size = new System.Drawing.Size(64, 24);
+            this.serverToolStripMenuItem1.Text = "Server";
+            this.serverToolStripMenuItem1.Click += new System.EventHandler(this.serverToolStripMenuItem1_Click);
+            // 
             // ChatClient
             // 
+            this.AcceptButton = this.SendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.CancelButton = this.ExitButton;
             this.ClientSize = new System.Drawing.Size(913, 543);
             this.Controls.Add(this.ErrorText);
             this.Controls.Add(this.ChattingPanel);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuTopbar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuTopbar;
             this.Name = "ChatClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chat Client";
             this.menuTopbar.ResumeLayout(false);
             this.menuTopbar.PerformLayout();
@@ -390,7 +418,7 @@
         private System.Windows.Forms.TextBox ServerPort_Input;
         private System.Windows.Forms.Button UsernameEdit;
         private System.Windows.Forms.Button ExitButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label userip_label;
         private System.Windows.Forms.Panel ChattingPanel;
         private System.Windows.Forms.TextBox Message_InputBox;
         private System.Windows.Forms.Button SendButton;
@@ -400,6 +428,7 @@
         private System.Windows.Forms.OpenFileDialog FileDialog1;
         private System.Windows.Forms.RichTextBox MessageOutputBox;
         public System.Windows.Forms.Label ErrorText;
+        private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem1;
     }
 }
 

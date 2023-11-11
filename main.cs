@@ -29,10 +29,8 @@ namespace WinFormsApplication
         private TcpClient client;
         private NetworkStream stream;
         private Thread receiveThread;
-
-        //Message variable
         
-
+        private string hostname = Dns.GetHostName();
 
         public ChatClient()
         {
@@ -44,9 +42,21 @@ namespace WinFormsApplication
             }
 
             UsernameLabel.Text = Settings.Default.Username;
+            userip_label.Text = GetLocalIPAddress();
         }
-            
-        
+
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -63,7 +73,11 @@ namespace WinFormsApplication
 
         }
 
-        
+        private void serverToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ServerForm serverForm = new ServerForm();
+            serverForm.Show();
+        }
 
         private void usernameToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -192,5 +206,6 @@ namespace WinFormsApplication
 
             Message_InputBox.Clear();
         }
+
     }
 }
