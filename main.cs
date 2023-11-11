@@ -32,7 +32,6 @@ namespace WinFormsApplication
 
         //Message variable
         
-        public string msg;
 
 
         public ChatClient()
@@ -110,8 +109,8 @@ namespace WinFormsApplication
             {
                 client.Connect(ServerIP_Input.Text, Convert.ToInt32(ServerPort_Input.Text));
 
-                //NetworkStream stream = client.GetStream();
-                stream = client.GetStream();
+                NetworkStream stream = client.GetStream();
+                //stream = client.GetStream();
 
                 receiveThread = new Thread(ReceiveMessages);
                 receiveThread.Start();
