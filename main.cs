@@ -123,7 +123,7 @@ namespace WinFormsApplication
             {
                 client.Connect(ServerIP_Input.Text, Convert.ToInt32(ServerPort_Input.Text));
 
-                NetworkStream stream = client.GetStream();
+                stream = client.GetStream();
                 //stream = client.GetStream();
 
                 receiveThread = new Thread(ReceiveMessages);
@@ -162,10 +162,11 @@ namespace WinFormsApplication
             if (InvokeRequired)
             {
                 Invoke(new Action(() => AddMessageToTextBox(message)));
+                MessageOutputBox.AppendText(Settings.Default.Username + ": " + message + Environment.NewLine);
             }
             else
             {
-                Message_InputBox.AppendText(Settings.Default.Username + ": " + message + Environment.NewLine);
+                MessageOutputBox.AppendText(Settings.Default.Username + ": " + message + Environment.NewLine);
             }
         }
 
