@@ -32,22 +32,24 @@
             this.LogRichTextBox = new System.Windows.Forms.RichTextBox();
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
+            this.connected_users_label = new System.Windows.Forms.Label();
+            this.events_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ClientsListBox
             // 
             this.ClientsListBox.FormattingEnabled = true;
             this.ClientsListBox.ItemHeight = 16;
-            this.ClientsListBox.Location = new System.Drawing.Point(12, 12);
+            this.ClientsListBox.Location = new System.Drawing.Point(12, 44);
             this.ClientsListBox.Name = "ClientsListBox";
-            this.ClientsListBox.Size = new System.Drawing.Size(194, 388);
+            this.ClientsListBox.Size = new System.Drawing.Size(194, 356);
             this.ClientsListBox.TabIndex = 0;
             // 
             // LogRichTextBox
             // 
-            this.LogRichTextBox.Location = new System.Drawing.Point(224, 12);
+            this.LogRichTextBox.Location = new System.Drawing.Point(224, 44);
             this.LogRichTextBox.Name = "LogRichTextBox";
-            this.LogRichTextBox.Size = new System.Drawing.Size(564, 426);
+            this.LogRichTextBox.Size = new System.Drawing.Size(564, 394);
             this.LogRichTextBox.TabIndex = 1;
             this.LogRichTextBox.Text = "";
             // 
@@ -70,11 +72,33 @@
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
             // 
+            // connected_users_label
+            // 
+            this.connected_users_label.AutoSize = true;
+            this.connected_users_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connected_users_label.Location = new System.Drawing.Point(12, 25);
+            this.connected_users_label.Name = "connected_users_label";
+            this.connected_users_label.Size = new System.Drawing.Size(126, 16);
+            this.connected_users_label.TabIndex = 4;
+            this.connected_users_label.Text = "Connected Users";
+            // 
+            // events_label
+            // 
+            this.events_label.AutoSize = true;
+            this.events_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.events_label.Location = new System.Drawing.Point(221, 25);
+            this.events_label.Name = "events_label";
+            this.events_label.Size = new System.Drawing.Size(54, 16);
+            this.events_label.TabIndex = 5;
+            this.events_label.Text = "Events";
+            // 
             // ServerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.events_label);
+            this.Controls.Add(this.connected_users_label);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.LogRichTextBox);
@@ -82,6 +106,7 @@
             this.Name = "ServerForm";
             this.Text = "ServerForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,5 +116,7 @@
         private System.Windows.Forms.RichTextBox LogRichTextBox;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.Label connected_users_label;
+        private System.Windows.Forms.Label events_label;
     }
 }
