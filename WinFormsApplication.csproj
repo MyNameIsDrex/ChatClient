@@ -52,10 +52,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>33DF15773087EE4133D88DD13151C76D8D9817C8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>0959A32F0B33A51564EADA9D6EBE67670F345926</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Cert-RL23.pfx</ManifestKeyFile>
+    <ManifestKeyFile>WinFormsApplication_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -117,7 +117,6 @@
     <EmbeddedResource Include="user_edit_form.resx">
       <DependentUpon>user_edit_form.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Cert-RL23.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,6 +126,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WinFormsApplication_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
